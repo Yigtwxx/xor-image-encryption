@@ -18,7 +18,7 @@ A simple image encryption and decryption tool using XOR with seed-based key gene
 
 ---
 
-## # 🌟 Key Capabilities: What Makes This Project Stand Out?
+##  🌟 Key Capabilities: What Makes This Project Stand Out?
 
 This library is not just an encryption tool; it's an engineering feat optimized for **speed** and **reproducibility**.
 
@@ -43,14 +43,14 @@ This library is not just an encryption tool; it's an engineering feat optimized 
 
 ---
 
-## # 📂 Project Structure
+##  📂 Project Structure
 
 A clean and intuitive file hierarchy:
 xor-image-encryption/ │ ├── xor_single.py # 🔑 Single-seed XOR encryption/decryption engine ├── xor_multi.py # ⛓️ Multi-seed cascaded encryption/decryption ├── requirements.txt # 📦 Required Dependencies (NumPy, Pillow) │ ├── bugsbunny.jpg # 🖼️ Example Input File ├── outputs/ # 📤 Encrypted / Decrypted Outputs are Saved Here │ ├── README.md # This stunning file ├── LICENSE # MIT License └── .gitignore
 
 ---
 
-## # ▶️ Usage: Just a Few Lines of Code!
+##  ▶️ Usage: Just a Few Lines of Code!
 
 Using this library is incredibly simple.
 
@@ -66,7 +66,7 @@ encrypt_image(
     seed=12345
 )
 ```
-# 🔓 Decrypt (Single Seed)
+### 🔓 Decrypt (Single Seed)
 ```Python
 
 from xor_single import decrypt_image
@@ -78,7 +78,7 @@ decrypt_image(
     seed=12345
 )
 ```
-# 🔥 Multi-Seed Cascaded Encryption
+### 🔥 Multi-Seed Cascaded Encryption
 
 For more robust masking!
 
@@ -95,7 +95,7 @@ multi_encrypt(
     seeds=seeds
 )
 ```
-# 🔄 Multi-Seed Decryption
+### 🔄 Multi-Seed Decryption
 
 Use the same list of seeds in the encryption order.
 
@@ -112,7 +112,7 @@ multi_decrypt(
 )
 ```
 
-# 🛡️ Security Notes and Use Cases
+## 🛡️ Security Notes and Use Cases
 IMPORTANT: XOR encryption is not intended as a replacement for modern encryption standards (AES, ChaCha20, etc.). Our focus is on fast visual obfuscation and data masking rather than absolute confidentiality.
 
   -This project focuses on lightweight, reversible image masking suitable for:
