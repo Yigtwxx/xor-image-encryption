@@ -43,11 +43,19 @@ This library is not just an encryption tool; it's an engineering feat optimized 
 
 ---
 
-##  📂 Project Structure
+## 📂 Project Structure
 
-A clean and intuitive file hierarchy:
-xor-image-encryption/ │ ├── xor_single.py # 🔑 Single-seed XOR encryption/decryption engine ├── xor_multi.py # ⛓️ Multi-seed cascaded encryption/decryption ├── requirements.txt # 📦 Required Dependencies (NumPy, Pillow) │ ├── bugsbunny.jpg # 🖼️ Example Input File ├── outputs/ # 📤 Encrypted / Decrypted Outputs are Saved Here │ ├── README.md # This stunning file ├── LICENSE # MIT License └── .gitignore
+File hierarchy:
 
+* **`xor-image-encryption/`**
+    * `xor_single.py` 🔑 Single-seed XOR encryption/decryption engine
+    * `xor_multi.py` ⛓️ Multi-seed cascaded encryption/decryption
+    * `requirements.txt` 📦 Required Dependencies (NumPy, Pillow)
+    * `bugsbunny.jpg` 🖼️ Example Input File
+    * `outputs/` 📤 Encrypted / Decrypted Outputs are Saved Here
+    * `README.md` This stunning file
+    * `LICENSE` MIT License
+    * `.gitignore`
 ---
 
 ##  ▶️ Usage: Just a Few Lines of Code!
