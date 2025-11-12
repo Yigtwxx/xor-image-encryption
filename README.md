@@ -163,3 +163,5 @@ Development never stops! Here's what's next:
 Yigtwxx
 
 An engineer focused on building practical solutions at the intersection of lightweight cryptography, image processing, and reproducible engineering. I specialize in Machine Learning (ML) and Deep Learning (DL) development, utilizing Python for high-performance and scalable data applications. I am keen on open-source contributions and advancing fast, efficient algorithms.
+
+LinkedIn: www.linkedin.com/in/yiğit-erdoğan-ba7a64294
