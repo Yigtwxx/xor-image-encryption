@@ -84,6 +84,7 @@ decrypt_image(
     input_path="outputs/encrypted.png",
     output_path="outputs/restored.png",
     seed=12345
+
 )
 ```
 ### 🔥 Multi-Seed Cascaded Encryption
