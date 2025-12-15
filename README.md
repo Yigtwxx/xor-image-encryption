@@ -3,7 +3,6 @@ A simple image encryption and decryption tool using XOR with seed-based key gene
 
 # 🔐 Dazzling XOR Image Encryption — Seed-Based, RGB-Level Crypto Engine
 
-
 ## ✨ Introduction: The Art of Fast and Reversible Image Masking
 
 **XOR Image Encryption** is a **lightweight**, **reversible**, and **seed-based** XOR encryption system designed for RGB images. It supports both single-seed and multi-seed encryption pipelines, offering completely **deterministic** and **perfectly reproducible** results suitable for **research**, **dataset anonymization**, **educational cryptography**, and **embedded systems**.
