@@ -1,9 +1,9 @@
 # xor-image-encryption
 A simple image encryption and decryption tool using XOR with seed-based key generation. Supports RGB pixel-level encryption, histogram analysis, and multi-seed operations.
 
-# 🔐 Dazzling XOR Image Encryption — Seed-Based, RGB-Level Crypto Engine
+#  Dazzling XOR Image Encryption — Seed-Based, RGB-Level Crypto Engine
 
-## ✨ Introduction: The Art of Fast and Reversible Image Masking
+##  Introduction: The Art of Fast and Reversible Image Masking
 
 **XOR Image Encryption** is a **lightweight**, **reversible**, and **seed-based** XOR encryption system designed for RGB images. It supports both single-seed and multi-seed encryption pipelines, offering completely **deterministic** and **perfectly reproducible** results suitable for **research**, **dataset anonymization**, **educational cryptography**, and **embedded systems**.
 
@@ -18,51 +18,51 @@ A simple image encryption and decryption tool using XOR with seed-based key gene
 
 ---
 
-##  🌟 Key Capabilities: What Makes This Project Stand Out?
+##   Key Capabilities: What Makes This Project Stand Out?
 
 This library is not just an encryption tool; it's an engineering feat optimized for **speed** and **reproducibility**.
 
-* **✅ Seed-Based Key Generation**
+* **Seed-Based Key Generation**
     * **Deterministic** masks derived from integer seeds.
     * Guarantees perfect **reproducibility** and reversible encryption.
     * Essential for **dataset anonymization**.
 
-* **⚡ RGB Channel XOR Engine**
+* **RGB Channel XOR Engine**
     * **8-bit XOR** operation per R, G, and B channel.
     * **Extremely fast CPU performance** (via NumPy vectorization).
     * **Fully reversible** when applied with the identical seed.
 
-* **🔥 Multi-Layer Encryption (`xor_multi.py`)**
+* **Multi-Layer Encryption (`xor_multi.py`)**
     * **Cascaded encryption** using multiple seeds.
     * Provides higher diffusion and entropy.
     * Still perfectly reversible when using the full sequence of seeds.
 
-* **🟢 Single-Layer Encryption (`xor_single.py`)**
+* **Single-Layer Encryption (`xor_single.py`)**
     * **Lightweight** one-pass XOR encryption.
     * Perfect for demos and simple visual obfuscation.
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 File hierarchy:
 
 * **`xor-image-encryption/`**
-    * `xor_single.py` 🔑 Single-seed XOR encryption/decryption engine
-    * `xor_multi.py` ⛓️ Multi-seed cascaded encryption/decryption
-    * `requirements.txt` 📦 Required Dependencies (NumPy, Pillow)
-    * `bugsbunny.jpg` 🖼️ Example Input File
-    * `outputs/` 📤 Encrypted / Decrypted Outputs are Saved Here
+    * `xor_single.py`  Single-seed XOR encryption/decryption engine
+    * `xor_multi.py`  Multi-seed cascaded encryption/decryption
+    * `requirements.txt`  Required Dependencies (NumPy, Pillow)
+    * `bugsbunny.jpg`  Example Input File
+    * `outputs/`  Encrypted / Decrypted Outputs are Saved Here
     * `README.md` This stunning file
     * `LICENSE` MIT License
     * `.gitignore`
 ---
 
-##  ▶️ Usage: Just a Few Lines of Code!
+##   Usage: Just a Few Lines of Code!
 
 Using this library is incredibly simple.
 
-### 🔒 Encrypt (Single Seed)
+###  Encrypt (Single Seed)
 
 ```python
 from xor_single import encrypt_image
@@ -74,7 +74,7 @@ encrypt_image(
     seed=12345
 )
 ```
-### 🔓 Decrypt (Single Seed)
+###  Decrypt (Single Seed)
 ```Python
 
 from xor_single import decrypt_image
@@ -87,7 +87,7 @@ decrypt_image(
 
 )
 ```
-### 🔥 Multi-Seed Cascaded Encryption
+###  Multi-Seed Cascaded Encryption
 
 For more robust masking!
 
@@ -104,7 +104,7 @@ multi_encrypt(
     seeds=seeds
 )
 ```
-### 🔄 Multi-Seed Decryption
+###  Multi-Seed Decryption
 
 Use the same list of seeds in the encryption order.
 
@@ -147,7 +147,7 @@ Incredible speeds are achieved thanks to the power of NumPy vectorization.
 * **Zero-copy** transformations.
 * **Near-zero latency**.
 
-# 🧭 Roadmap
+#  Roadmap
 Development never stops! Here's what's next:
 
 - Multi-seed encryption (Completed!)
