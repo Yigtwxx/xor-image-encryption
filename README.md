@@ -1,168 +1,83 @@
-# xor-image-encryption
-A simple image encryption and decryption tool using XOR with seed-based key generation. Supports RGB pixel-level encryption, histogram analysis, and multi-seed operations.
+# XOR Image Encryption for Vision Pipelines
 
-#  Dazzling XOR Image Encryption — Seed-Based, RGB-Level Crypto Engine
+Deterministic, seed-based XOR masking for RGB images.
+Built for fast dataset obfuscation, computer vision preprocessing, and reproducible experiments.
 
-##  Introduction: The Art of Fast and Reversible Image Masking
+[![CI](https://github.com/Yigtwxx/xor-image-encryption/actions/workflows/python-app.yml/badge.svg?branch=main)](https://github.com/Yigtwxx/xor-image-encryption/actions/workflows/python-app.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**XOR Image Encryption** is a **lightweight**, **reversible**, and **seed-based** XOR encryption system designed for RGB images. It supports both single-seed and multi-seed encryption pipelines, offering completely **deterministic** and **perfectly reproducible** results suitable for **research**, **dataset anonymization**, **educational cryptography**, and **embedded systems**.
+## Why this project
 
-<p align="center">
-<img src="https://img.shields.io/badge/Status-🚀%20Active%20Development-brightgreen?style=for-the-badge&logo=github" />
-<img src="https://img.shields.io/badge/Technology-Python%203.10%2B-blue?style=for-the-badge&logo=python" />
-<img src="https://img.shields.io/badge/License-MIT-purple?style=for-the-badge&logo=opensourceinitiative" />
-<img src="https://img.shields.io/badge/Security-XOR%20Masking-orange?style=for-the-badge&logo=gnuprivacyguard" />
-<img src="https://img.shields.io/badge/Performance-⚡%20NumPy%20Speed-yellow?style=flat-square&logo=numpy" />
-<img src="https://img.shields.io/badge/Image%20Processing-Pillow%20Enabled-blueviolet?style=flat-square&logo=pythonimaging" />
-</p>
+- Reproducible masking: the same seed always generates the same key.
+- Lightweight: pure Python + NumPy + Pillow.
+- Reversible: applying XOR with the same key restores the original image.
+- Practical for ML workflows where visual obfuscation is needed before sharing data.
 
----
+## What it is / What it is not
 
-##   Key Capabilities: What Makes This Project Stand Out?
+- What it is: a deterministic XOR masking tool for images.
+- What it is not: a replacement for modern cryptographic standards like AES or ChaCha20.
 
-This library is not just an encryption tool; it's an engineering feat optimized for **speed** and **reproducibility**.
+## 60-second quickstart
 
-* **Seed-Based Key Generation**
-    * **Deterministic** masks derived from integer seeds.
-    * Guarantees perfect **reproducibility** and reversible encryption.
-    * Essential for **dataset anonymization**.
+### 1) Install
 
-* **RGB Channel XOR Engine**
-    * **8-bit XOR** operation per R, G, and B channel.
-    * **Extremely fast CPU performance** (via NumPy vectorization).
-    * **Fully reversible** when applied with the identical seed.
-
-* **Multi-Layer Encryption (`xor_multi.py`)**
-    * **Cascaded encryption** using multiple seeds.
-    * Provides higher diffusion and entropy.
-    * Still perfectly reversible when using the full sequence of seeds.
-
-* **Single-Layer Encryption (`xor_single.py`)**
-    * **Lightweight** one-pass XOR encryption.
-    * Perfect for demos and simple visual obfuscation.
-
----
-
-##  Project Structure
-
-File hierarchy:
-
-* **`xor-image-encryption/`**
-    * `xor_single.py`  Single-seed XOR encryption/decryption engine
-    * `xor_multi.py`  Multi-seed cascaded encryption/decryption
-    * `requirements.txt`  Required Dependencies (NumPy, Pillow)
-    * `bugsbunny.jpg`  Example Input File
-    * `outputs/`  Encrypted / Decrypted Outputs are Saved Here
-    * `README.md` This stunning file
-    * `LICENSE` MIT License
-    * `.gitignore`
----
-
-##   Usage: Just a Few Lines of Code!
-
-Using this library is incredibly simple.
-
-###  Encrypt (Single Seed)
-
-```python
-from xor_single import encrypt_image
-
-# All the magic is in this integer 'seed'!
-encrypt_image(
-    input_path="bugsbunny.jpg",
-    output_path="outputs/encrypted.png",
-    seed=12345
-)
-```
-###  Decrypt (Single Seed)
-```Python
-
-from xor_single import decrypt_image
-
-# Use the exact same 'seed' to restore the image.
-decrypt_image(
-    input_path="outputs/encrypted.png",
-    output_path="outputs/restored.png",
-    seed=12345
-
-)
-```
-###  Multi-Seed Cascaded Encryption
-
-For more robust masking!
-
-```Python
-
-from xor_multi import multi_encrypt, multi_decrypt
-
-# Define a sequence of seeds
-seeds = [111, 222, 333] # A different mask for each layer!
-
-multi_encrypt(
-    input_path="bugsbunny.jpg",
-    output_path="outputs/multi_encrypted.png",
-    seeds=seeds
-)
-```
-###  Multi-Seed Decryption
-
-Use the same list of seeds in the encryption order.
-
-```Python
-
-from xor_multi import multi_encrypt, multi_decrypt
-
-seeds = [111, 222, 333] # THE ORDER MUST BE STRICTLY MAINTAINED!
-
-multi_decrypt(
-    input_path="outputs/multi_encrypted.png",
-    output_path="outputs/multi_restored.png",
-    seeds=seeds
-)
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-## 🛡️ Security Notes and Use Cases
-IMPORTANT: XOR encryption is not intended as a replacement for modern encryption standards (AES, ChaCha20, etc.). Our focus is on fast visual obfuscation and data masking rather than absolute confidentiality.
+### 2) Single-seed encryption + roundtrip
 
-  -This project focuses on lightweight, reversible image masking suitable for:
+```bash
+python xor_single.py --input bugsbunny.jpg --seed 42 --outdir outputs
+```
 
-  -Dataset Obfuscation: Anonymizing Machine Learning/AI (ML/AI) datasets.
+### 3) Multi-seed cascaded encryption + roundtrip
 
-  -Research & Education: Visualizing and teaching cryptography principles.
+```bash
+python xor_multi.py --input bugsbunny.jpg --seeds 11 22 33 --outdir outputs
+```
 
-  -Embedded/IoT Usage: Fast offline operations with low computational requirements.
+## Demo and sample outputs
 
-  -Fast Preprocessing: Near-zero latency in image processing pipelines.
+- Demo animation: [assets/demo.gif](assets/demo.gif)
+- Encrypted sample: [outputs/encrypted_seed42.png](outputs/encrypted_seed42.png)
+- Decrypted sample: [outputs/decrypted_seed42.png](outputs/decrypted_seed42.png)
+- Histogram (encrypted): [outputs/hist_encrypted.png](outputs/hist_encrypted.png)
 
-## 📈 Performance: In the Blink of an Eye!
+## Technical docs
 
-Incredible speeds are achieved thanks to the power of NumPy vectorization.
+- Deep dive: [docs/TECHNICAL.md](docs/TECHNICAL.md)
+- Security policy: [SECURITY.md](SECURITY.md)
+- Contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Code of conduct: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- GitHub operations checklist: [docs/GITHUB_OPERATION_CHECKLIST.md](docs/GITHUB_OPERATION_CHECKLIST.md)
+- Release notes draft: [docs/RELEASE_NOTES_v0.1.0.md](docs/RELEASE_NOTES_v0.1.0.md)
 
-| Resolution | Encrypt Time | Decrypt Time | Hardware |
-| :--------: | :----------: | :----------: | :------: |
-| **1080p** | ~1–3 ms      | ~1–3 ms      | CPU      |
-| **4K** | ~5–10 ms     | ~5–10 ms     | CPU      |
+## Recommended GitHub metadata
 
-* Powered by **NumPy Vectorization**.
-* **Zero-copy** transformations.
-* **Near-zero latency**.
+Use this in the repo "About" field:
 
-#  Roadmap
-Development never stops! Here's what's next:
+`Seed-based XOR image encryption for deterministic dataset masking and computer vision preprocessing.`
 
-- Multi-seed encryption (Completed!)
+Recommended topics:
 
-🚧 CLI tool (xor-cli) for command-line integration
+`image-encryption`, `xor`, `computer-vision`, `dataset-anonymization`, `python`, `numpy`, `pillow`, `image-processing`, `reproducibility`, `cryptography-education`
 
-🚧 Batch dataset encryption capability
+## Roadmap
 
-🚧 Optional GPU support (For even more speed)
+- CLI polish
+- Batch dataset encryption
+- Reproducible benchmark suite
 
-🚧 Web UI demonstration (Online demo)
+See: [ROADMAP.md](ROADMAP.md)
 
-# 👤 Author
-Yigtwxx
+## Call to action
 
-An engineer focused on building practical solutions at the intersection of lightweight cryptography, image processing, and reproducible engineering. I specialize in Machine Learning (ML) and Deep Learning (DL) development, utilizing Python for high-performance and scalable data applications. I am keen on open-source contributions and advancing fast, efficient algorithms.
+If this project is useful:
 
-LinkedIn: www.linkedin.com/in/yiğit-erdoğan-ba7a64294
+- Star the repository
+- Watch for updates
+- Open a Discussion with your use case or benchmark

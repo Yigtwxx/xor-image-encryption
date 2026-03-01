@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Q&A Discussions
+    url: https://github.com/Yigtwxx/xor-image-encryption/discussions
+    about: Ask questions and share usage patterns in Discussions.
+  - name: Security reports
+    url: https://github.com/Yigtwxx/xor-image-encryption/security/advisories/new
+    about: Please report vulnerabilities privately.

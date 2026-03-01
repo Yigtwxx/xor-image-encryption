@@ -1,21 +1,31 @@
 # Security Policy
 
-## Supported Versions
+## Supported versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+| Version | Supported |
+| ------- | --------- |
+| main    | Yes       |
+| < 0.1.0 | No        |
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+## Reporting a vulnerability
 
-## Reporting a Vulnerability
+Preferred path:
 
-Use this section to tell people how to report a vulnerability.
+- Open a private report via GitHub Security Advisories:
+  - https://github.com/Yigtwxx/xor-image-encryption/security/advisories/new
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Fallback path (if private reporting is unavailable):
+
+- Open a GitHub issue with title prefix `[SECURITY]` and avoid sharing exploit details publicly.
+- A maintainer will move sensitive discussion to a private channel.
+
+## Response targets
+
+- Initial acknowledgment: within 72 hours
+- Triage decision: within 7 days
+- Fix timeline: depends on severity and complexity
+
+## Disclosure policy
+
+- Please allow time for validation and remediation before public disclosure.
+- Once fixed, a changelog/release note entry will document impact and mitigation.
